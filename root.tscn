@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://root.gd" type="Script" id=1]
+[ext_resource path="res://background.png" type="Texture" id=2]
+[ext_resource path="res://Button.gd" type="Script" id=3]
+[ext_resource path="res://cube.gd" type="Script" id=4]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.803922, 0.133333, 0.878431, 1 )
+
+[sub_resource type="CubeMesh" id=1]
+material = SubResource( 2 )
+
+[node name="root" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="logo" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.0901961 )
+position = Vector2( 511.955, 300.416 )
+scale = Vector2( 1.59588, 1.24555 )
+texture = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 810.0
+margin_top = 70.0
+margin_right = 980.0
+margin_bottom = 138.0
+text = "Go to Print"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3DScene" type="Spatial" parent="."]
+
+[node name="cube" type="MeshInstance" parent="3DScene"]
+mesh = SubResource( 1 )
+material/0 = null
+script = ExtResource( 4 )
+
+[node name="Camera" type="Camera" parent="3DScene"]
+transform = Transform( 0.939693, -0.0179, 0.341551, 0, 0.99863, 0.052336, -0.34202, -0.0491797, 0.938405, 2, 1.5, 3.5 )
+fov = 89.2867

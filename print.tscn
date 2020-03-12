@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Button
+
+
+func _pressed():
+	#get_tree().change_scene(\"res://root.tscn\")
+	GLOBAL.change_scene(\"res://root.tscn\")
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Label
+
+
+
+func _ready():
+	GLOBAL.score += 1
+	text = 'Score = ' + str(GLOBAL.score)
+
+
+"
+
+[node name="print" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 747.0
+margin_top = 88.0
+margin_right = 988.0
+margin_bottom = 172.0
+text = "Back"
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 430.561
+margin_top = 300.837
+margin_right = 599.561
+margin_bottom = 359.837
+text = "Score"
+align = 1
+valign = 1
+script = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
